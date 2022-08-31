@@ -9,14 +9,21 @@ const showTask = (e) => {
   e.preventDefault();
   let newItem = document.createElement("li");
   let delIcon = document.createElement("button");
+  let editIcon = document.createElement("button");
+  let btnDiv = document.createElement("div");
 
   newItem.classList.add("todo-child");
+  btnDiv.classList.add("btns");
   delIcon.classList.add("del-btn");
+  editIcon.classList.add("edit-btn");
   delIcon.innerHTML = `<i class="fas fa-trash-alt"></i>`;
+  editIcon.innerHTML = ` <i class="fas fa-edit"></i>`;
 
   if (formInput.value !== "") {
     newItem.textContent = formInput.value;
-    newItem.appendChild(delIcon);
+    newItem.appendChild(btnDiv);
+    btnDiv.appendChild(editIcon);
+    btnDiv.appendChild(delIcon);
     todoEl.appendChild(newItem);
   }
   if (formInput.value === "") {
@@ -30,9 +37,25 @@ const showTask = (e) => {
   function deleteTodo() {
     let delet = confirm("Are you sure?");
     if (delet == true) {
-      let parent = this.parentNode;
+      let parent = this.parentNode.parentNode;
       parent.remove();
     }
+  }
+
+  // EDIT BUTTON
+  // EDIT BUTTON
+  // EDIT BUTTON
+
+  editIcon.addEventListener("click", editTodo);
+  function editTodo() {
+    todoForm.reset();
+    formInput.value = newItem.textContent;
+    formInput.focus();
+    let parent = this.parentNode.parentNode;
+    parent.remove();
+    // tasksObj.splice(index, 1);
+    // localStorage.setItem("tasks", JSON.stringify(tasksObj));
+    // showTask();
   }
 };
 

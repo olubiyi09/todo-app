@@ -114,6 +114,17 @@ input {
   cursor: pointer;
 }
 
+.fa-edit {
+  color: green;
+  background: transparent;
+}
+
+.edit-btn {
+  background: transparent;
+  border: none;
+  margin-right: 1rem;
+}
+
 .clear-btn {
   margin: 3rem 0 1rem 0;
   display: flex;
@@ -151,5 +162,18 @@ input {
   input {
     width: 180px;
     font-size: 1.1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  input {
+    width: 160px;
+    font-size: 0.9rem;
+  }
+
+  .add-btn {
+    font-size: 1.4rem;
+    margin-left: 1rem;
+    padding: 1rem 2rem;
   }
 }
